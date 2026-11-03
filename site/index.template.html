@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{SITE_TITLE}}</title>
+<meta name="description" content="Bibliotecas de estudo em modo leitura: japonês e AI Engineering, com grafo de conexões e busca.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%234f46e5'/%3E%3Ctext x='32' y='43' font-size='34' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'%3E学%3C/text%3E%3C/svg%3E">
+<script>
+  // mesma chave do tema do Quartz, para a escolha valer em todo o site
+  (function () {
+    var t; try { t = localStorage.getItem("theme"); } catch (e) {}
+    if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", t);
+  })();
+</script>
+<style>
+  :root {
+    --bg: #f7f7fb; --surface: #ffffff; --ink: #151822; --muted: #566074; --line: #e4e6ee;
+    --shadow: 0 1px 2px rgba(16,24,40,.05), 0 18px 40px -22px rgba(16,24,40,.28);
+    --a: var(--a-l);
+  }
+  :root[data-theme="dark"] {
+    --bg: #0d0f15; --surface: #161922; --ink: #f1f3f9; --muted: #a2abbd; --line: #272b38;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 18px 40px -22px rgba(0,0,0,.7);
+  }
+  :root[data-theme="dark"] .card { --a: var(--a-d); }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; min-height: 100vh; background: var(--bg); color: var(--ink);
+    font: 400 1.0625rem/1.65 Inter, "Noto Sans JP", "Yu Gothic", "Hiragino Sans", Meiryo, system-ui, -apple-system, "Segoe UI", sans-serif;
+    background-image:
+      radial-gradient(900px 380px at 12% -10%, color-mix(in srgb, #c2253d 11%, transparent), transparent 70%),
+      radial-gradient(900px 380px at 90% -10%, color-mix(in srgb, #4f46e5 12%, transparent), transparent 70%);
+    background-repeat: no-repeat;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 28px 20px 56px; }
+  header { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .brand { font-weight: 800; letter-spacing: -.02em; font-size: 1.05rem; display: inline-flex; align-items: center; gap: 10px; }
+  .brand i { width: 28px; height: 28px; border-radius: 9px; display: grid; place-items: center; font-style: normal; color: #fff;
+             background: linear-gradient(135deg, #c2253d, #4f46e5); font-size: .95rem; }
+  button.theme { border: 1px solid var(--line); background: var(--surface); color: var(--ink); width: 40px; height: 40px; border-radius: 12px;
+                 cursor: pointer; font-size: 1.05rem; transition: transform .15s, border-color .15s; }
+  button.theme:hover { transform: translateY(-1px); border-color: var(--muted); }
+  .hero { padding: clamp(36px, 8vw, 88px) 0 28px; max-width: 720px; }
+  .eyebrow { display: inline-block; font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
+             border: 1px solid var(--line); background: var(--surface); padding: 4px 12px; border-radius: 999px; }
+  h1 { margin: 16px 0 12px; font-size: clamp(2.4rem, 7vw, 4rem); line-height: 1.05; letter-spacing: -.035em; font-weight: 800;
+       background: linear-gradient(100deg, #c2253d 0%, #4f46e5 70%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .lead { margin: 0; font-size: clamp(1.05rem, 2.4vw, 1.25rem); color: var(--muted); max-width: 56ch; }
+  .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); margin-top: 28px; }
+  .card { --a: var(--a-l); position: relative; display: flex; flex-direction: column; gap: 8px; padding: 26px 24px 22px; color: inherit; text-decoration: none;
+          background: var(--surface); border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow); overflow: hidden;
+          transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+  .card::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 4px; background: var(--a); }
+  .card:hover, .card:focus-visible { transform: translateY(-4px); border-color: var(--a); outline: none; }
+  .card:focus-visible { box-shadow: 0 0 0 3px color-mix(in srgb, var(--a) 40%, transparent), var(--shadow); }
+  .badge { align-self: flex-start; font-size: 1.5rem; font-weight: 800; line-height: 1; color: var(--a); padding: 10px 14px; border-radius: 14px;
+           background: color-mix(in srgb, var(--a) 11%, transparent); letter-spacing: -.01em; }
+  .card h2 { margin: 10px 0 0; font-size: 1.5rem; letter-spacing: -.02em; }
+  .card p { margin: 0; color: var(--muted); font-size: 1rem; }
+  .stats { list-style: none; display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 10px 0 0; padding: 12px 0 0; border-top: 1px dashed var(--line);
+           color: var(--muted); font-size: .9rem; }
+  .stats b { color: var(--ink); font-variant-numeric: tabular-nums; }
+  .cta { margin-top: 12px; font-weight: 700; color: var(--a); display: inline-flex; gap: 6px; align-items: center; }
+  .cta span { transition: transform .2s; }
+  .card:hover .cta span { transform: translateX(4px); }
+  .how { margin-top: 36px; display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+  .how div { padding: 16px 18px; border: 1px solid var(--line); border-radius: 14px; background: color-mix(in srgb, var(--surface) 70%, transparent); }
+  .how b { display: block; margin-bottom: 2px; }
+  .how span { color: var(--muted); font-size: .95rem; }
+  footer { margin-top: 36px; color: var(--muted); font-size: .88rem; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+  kbd { font: inherit; font-size: .82em; padding: 1px 7px; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 6px; background: var(--surface); }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="brand"><i aria-hidden="true">学</i>{{SITE_TITLE}}</span>
+    <button class="theme" id="theme" type="button" aria-label="Alternar tema claro e escuro" title="Alternar tema">◐</button>
+  </header>
+
+  <section class="hero">
+    <span class="eyebrow">Somente leitura</span>
+    <h1>Duas bibliotecas de estudo</h1>
+    <p class="lead">Notas conectadas por links, com grafo, busca e diagramas. Escolha uma biblioteca e troque quando quiser.</p>
+  </section>
+
+  <main class="grid">{{CARDS}}
+  </main>
+
+  <section class="how" aria-label="Como navegar">
+    <div><b>Grafo de conexões</b><span>Veja como as notas se ligam e clique para pular entre elas.</span></div>
+    <div><b>Busca rápida</b><span>Pressione <kbd>Ctrl</kbd> + <kbd>K</kbd> dentro de uma biblioteca.</span></div>
+    <div><b>Troca de biblioteca</b><span>O seletor fica no topo da barra lateral, em qualquer página.</span></div>
+  </section>
+
+  <footer>
+    <span>Atualizado diariamente às 6h (Brasília).</span>
+    <span>Última geração: {{UPDATED}}</span>
+  </footer>
+</div>
+<script>
+  document.getElementById("theme").addEventListener("click", function () {
+    var next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    try { localStorage.setItem("theme", next); } catch (e) {}
+  });
+</script>
+</body>
+</html>

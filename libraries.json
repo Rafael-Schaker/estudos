@@ -1,0 +1,31 @@
+{
+  "site": {
+    "title": "Estudos",
+    "user": "Rafael-Schaker",
+    "repo": "estudos"
+  },
+  "libraries": [
+    {
+      "id": "japones",
+      "title": "Japonês",
+      "badge": "日本語",
+      "label": "Japonês",
+      "description": "Do hiragana ao avançado: escrita, gramática, vocabulário, frases do dia a dia, trilha de estudo e flashcards.",
+      "repo": "Rafael-Schaker/JPNClass",
+      "branch": "main",
+      "home": "Comece Aqui",
+      "accent": { "light": "#c2253d", "dark": "#ff6b81" }
+    },
+    {
+      "id": "ai",
+      "title": "AI Engineering",
+      "badge": "AI",
+      "label": "Engineering",
+      "description": "Além do prompt: RAG, agentes, MCP, skills, avaliação, fine-tuning e produção, com projetos práticos.",
+      "repo": "Rafael-Schaker/AIEngClass",
+      "branch": "main",
+      "home": "Comece Aqui",
+      "accent": { "light": "#4f46e5", "dark": "#8f97ff" }
+    }
+  ]
+}

@@ -1,25 +1,51 @@
 ﻿# Estudos: Japonês e AI Engineering (site de leitura)
 
-Site estático feito com [Quartz](https://quartz.jzhao.xyz/) a partir de dois cofres do Obsidian. Hospedado no GitHub Pages (grátis para repositórios públicos).
+Site estático feito com [Quartz](https://quartz.jzhao.xyz/) a partir de cofres do Obsidian e hospedado no GitHub Pages (grátis para repositórios públicos).
 
-- Página inicial: escolhe a biblioteca. Dentro de cada uma: leitura, grafo, busca, backlinks e botão para trocar de biblioteca.
-- `tools/prepare.py`: copia cada cofre para uma pasta temporária limpa (sem `.obsidian`, Anki e rascunhos).
-- `build.ps1`: gera `docs/` (os dois sites + a página inicial).
+## Como funciona
 
-## Atualizar o site depois de mudar os cofres
-
-```powershell
-.\build.ps1 -Repo NOME-DO-REPOSITORIO
-git add -A
-git commit -m "atualiza o site"
-git push
+```
+JPNClass (privado)  ┐
+AIEngClass (privado)┴─►  GitHub Action (todo dia às 6h de Brasília)  ─►  build.py  ─►  GitHub Pages
 ```
 
-Teste local: `.\build.ps1 -Local` e depois `python -m http.server 8080 --directory docs` (abra http://localhost:8080/).
+1. A Action baixa os repositórios listados em `libraries.json` (usa o segredo `VAULTS_TOKEN`).
+2. `tools/prepare.py` limpa cada cofre (sem `.obsidian`, Anki e rascunhos) e usa o H1 de cada nota como título.
+3. O Quartz gera um site por biblioteca (`/japones/`, `/ai/`) e o `build.py` monta a página inicial.
+4. O Pages publica o resultado.
 
-## Publicar (uma vez)
+Quando você atualiza um cofre (push no repositório dele), o site pega a mudança na próxima rodada das 6h, ou na hora se você disparar a Action manualmente (aba **Actions → Publicar site → Run workflow**).
 
-1. Repositório público no GitHub.
-2. Settings → Pages → Source: `Deploy from a branch` → `main` / pasta `/docs`.
+## Configuração (uma vez)
 
-Requisitos: Node 22+, Python 3 e `npm ci` já executado. O conteúdo dos cofres fica **público** no site.
+1. **Token de leitura dos cofres.** GitHub → Settings → Developer settings → Fine-grained tokens → *Generate new token*:
+   - Repository access: *Only select repositories* → `JPNClass` e `AIEngClass`
+   - Permissions → Repository permissions → **Contents: Read-only** (o resto fica sem acesso)
+   - Expiration: escolha uma data (renove quando vencer)
+2. **Segredo no repositório do site.** `estudos` → Settings → Secrets and variables → Actions → *New repository secret*: nome **`VAULTS_TOKEN`**, valor = o token.
+3. **Pages via Actions.** `estudos` → Settings → Pages → Source: **GitHub Actions**.
+4. **Primeira execução.** Aba Actions → *Publicar site* → *Run workflow*.
+
+Sem o segredo, a Action só avisa e não publica nada (o site atual continua no ar).
+
+## Adicionar mais uma biblioteca
+
+Acrescente um bloco em `libraries.json` (id, título, repositório, nota inicial, cor). A página inicial e o seletor se atualizam sozinhos. Se o repositório for privado, o token precisa incluí-lo.
+
+## Horário da atualização
+
+O GitHub usa UTC. `0 9 * * *` em `.github/workflows/publish.yml` equivale a 6h em Brasília (UTC-3). Para outro fuso, ajuste esse horário.
+
+## Desenvolvimento local
+
+Requisitos: Node 22+, Python 3 e `npm ci`.
+
+```powershell
+# copie libraries.local.json com os caminhos dos cofres no seu computador (arquivo ignorado pelo git)
+python build.py --local --out docs
+python -m http.server 8080 --directory docs   # http://localhost:8080/
+```
+
+O visual está em `quartz/styles/custom.scss`, `quartz.config.ts`, `site/index.template.html` e `quartz/components/LibrarySwitcher.tsx`.
+
+> O conteúdo dos cofres fica **público** no site, embora os repositórios deles continuem privados.

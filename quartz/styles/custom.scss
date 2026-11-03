@@ -1,3 +1,447 @@
 @use "./base.scss";
+@use "./variables.scss" as *;
 
-// put your custom CSS here!
+// ---------------------------------------------------------------------------
+// Tokens e tipografia
+// ---------------------------------------------------------------------------
+:root {
+  --radius: 14px;
+  --radius-sm: 10px;
+  --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.06);
+  --shadow-md: 0 1px 2px rgba(16, 24, 40, 0.05), 0 14px 30px -18px rgba(16, 24, 40, 0.3);
+  --bodyFont: Inter, "Noto Sans JP", "Yu Gothic", "Hiragino Sans", Meiryo, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --headerFont: Inter, "Noto Sans JP", "Yu Gothic", "Hiragino Sans", Meiryo, system-ui, sans-serif;
+  --titleFont: Inter, "Noto Sans JP", "Yu Gothic", "Hiragino Sans", Meiryo, system-ui, sans-serif;
+  --codeFont: "JetBrains Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+html {
+  scroll-padding-top: 5rem;
+}
+
+body {
+  font-size: 1.0625rem; // ~17px: mais confortável para leitura longa
+  line-height: 1.7;
+  font-feature-settings: "cv11", "ss01";
+  -webkit-font-smoothing: antialiased;
+  background-image: radial-gradient(900px 360px at 50% -140px, color-mix(in srgb, var(--secondary) 9%, transparent), transparent 70%);
+  background-repeat: no-repeat;
+}
+
+:focus-visible {
+  outline: 2px solid var(--secondary);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Barra lateral
+// ---------------------------------------------------------------------------
+.page > #quartz-body {
+  gap: 1.4rem;
+}
+
+.left.sidebar,
+.right.sidebar {
+  gap: 1.15rem;
+}
+
+.page-title {
+  font-size: 1.45rem !important;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+
+  &::before {
+    content: "";
+    width: 0.55rem;
+    height: 1.4rem;
+    border-radius: 4px;
+    background: var(--secondary);
+    flex: none;
+  }
+
+  a {
+    color: var(--dark);
+    &:hover {
+      color: var(--secondary);
+    }
+  }
+}
+
+.search > .search-button {
+  border: 1px solid var(--lightgray);
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--light) 80%, var(--lightgray));
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+
+  &:hover {
+    border-color: color-mix(in srgb, var(--secondary) 55%, var(--lightgray));
+  }
+  p {
+    color: var(--gray);
+    font-size: 0.92rem;
+  }
+}
+
+.darkmode,
+.readermode {
+  border-radius: var(--radius-sm);
+  transition: background 0.15s ease;
+  &:hover {
+    background: var(--highlight);
+  }
+}
+
+.explorer {
+  a,
+  .folder-title,
+  .folder-button span {
+    font-size: 0.94rem;
+    line-height: 1.35;
+  }
+  .explorer-content a {
+    display: block;
+    padding: 0.28rem 0.55rem;
+    border-radius: 8px;
+    font-weight: 500;
+    color: var(--darkgray);
+    transition: background 0.12s ease, color 0.12s ease;
+
+    &:hover {
+      background: var(--highlight);
+      color: var(--dark);
+    }
+    &.active {
+      background: color-mix(in srgb, var(--secondary) 13%, transparent);
+      color: var(--secondary);
+      font-weight: 700;
+    }
+  }
+  .folder-title,
+  .folder-button span {
+    font-weight: 700;
+    color: var(--dark);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Conteúdo
+// ---------------------------------------------------------------------------
+.breadcrumb-container {
+  font-size: 0.85rem;
+  color: var(--gray);
+}
+
+h1.article-title {
+  font-size: clamp(2rem, 4.4vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  color: var(--dark);
+  margin: 0.6rem 0 0.4rem;
+}
+
+.content-meta {
+  font-size: 0.86rem;
+  color: var(--gray);
+}
+
+ul.tags {
+  gap: 0.35rem;
+  margin: 0.6rem 0 1.2rem;
+
+  a.internal.tag-link {
+    padding: 0.18rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    background: color-mix(in srgb, var(--secondary) 10%, transparent);
+    color: var(--secondary);
+    &:hover {
+      background: color-mix(in srgb, var(--secondary) 18%, transparent);
+    }
+  }
+}
+
+article {
+  p,
+  li {
+    line-height: 1.78;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--dark);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    font-weight: 750;
+  }
+  h1 {
+    font-size: 2rem;
+    margin-top: 2.4rem;
+  }
+  h2 {
+    font-size: 1.6rem;
+    margin-top: 2.4rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--lightgray);
+  }
+  h3 {
+    font-size: 1.25rem;
+    margin-top: 1.9rem;
+  }
+  h4 {
+    font-size: 1.05rem;
+    margin-top: 1.5rem;
+  }
+
+  a:not(.internal) {
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, var(--secondary) 45%, transparent);
+    text-underline-offset: 3px;
+  }
+  a.internal {
+    border-radius: 6px;
+    padding: 0.02rem 0.28rem;
+    background: color-mix(in srgb, var(--secondary) 9%, transparent);
+    &:hover {
+      background: color-mix(in srgb, var(--secondary) 17%, transparent);
+      color: var(--secondary);
+    }
+  }
+
+  blockquote:not(.callout) {
+    border-left: 3px solid var(--secondary);
+    background: color-mix(in srgb, var(--secondary) 6%, transparent);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    margin: 1.2rem 0;
+    padding: 0.5rem 1.1rem;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px solid var(--lightgray);
+    margin: 2rem 0;
+  }
+
+  input[type="checkbox"] {
+    accent-color: var(--secondary);
+    width: 1.05em;
+    height: 1.05em;
+    vertical-align: -0.12em;
+  }
+
+  // tabelas: roláveis no celular, cabeçalho em destaque, linhas zebradas
+  table {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid var(--lightgray);
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    margin: 1.2rem 0;
+
+    th,
+    td {
+      padding: 0.55rem 0.85rem;
+      border: 0;
+      border-bottom: 1px solid var(--lightgray);
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: color-mix(in srgb, var(--secondary) 8%, var(--light));
+      color: var(--dark);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    tbody tr:nth-child(even) td {
+      background: color-mix(in srgb, var(--lightgray) 22%, transparent);
+    }
+    tbody tr:hover td {
+      background: color-mix(in srgb, var(--secondary) 6%, transparent);
+    }
+    tbody tr:last-child td {
+      border-bottom: 0;
+    }
+    td img {
+      margin: 0;
+      border-radius: 6px;
+      image-rendering: pixelated;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-sm);
+  }
+  p > img,
+  p > a > img {
+    display: block;
+    margin: 1.2rem auto;
+  }
+
+  code:not(pre > code) {
+    font-size: 0.88em;
+    padding: 0.1rem 0.4rem;
+    border-radius: 6px;
+    background: color-mix(in srgb, var(--lightgray) 55%, transparent);
+    border: 0;
+  }
+  pre {
+    border: 1px solid var(--lightgray);
+    border-radius: var(--radius-sm);
+    background: color-mix(in srgb, var(--lightgray) 22%, var(--light));
+    box-shadow: var(--shadow-sm);
+  }
+
+  // diagramas Mermaid em "cartão"
+  pre:has(> code.mermaid) {
+    padding: 0.6rem;
+    background: var(--light);
+    box-shadow: var(--shadow-md);
+    border-radius: var(--radius);
+  }
+}
+
+// Mermaid: nós coloridos (classDef) mantêm texto escuro legível nos dois temas.
+// Nós sem cor própria têm class="node default" ou "node default  " (dois espaços); os coloridos têm
+// "node default NOME " (um espaço e depois o nome da classe do classDef).
+svg .node[class^="node default "]:not([class^="node default  "]) {
+  .nodeLabel,
+  .nodeLabel p,
+  foreignObject div,
+  foreignObject span,
+  text,
+  tspan,
+  p {
+    color: #151822 !important;
+    fill: #151822 !important;
+  }
+}
+
+// avisos (callouts) mais suaves
+.callout {
+  border-radius: var(--radius-sm) !important;
+  padding: 0 1.1rem !important;
+  margin: 1.2rem 0;
+  box-shadow: var(--shadow-sm);
+
+  .callout-title {
+    padding: 0.7rem 0;
+    font-weight: 700;
+  }
+  .callout-content > :last-child {
+    margin-bottom: 0.9rem;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Barra direita
+// ---------------------------------------------------------------------------
+.graph {
+  > h3,
+  .toc > button h3,
+  .backlinks > h3 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+  .graph-outer {
+    border-radius: var(--radius);
+    border: 1px solid var(--lightgray);
+    background: color-mix(in srgb, var(--lightgray) 14%, var(--light));
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+  }
+}
+
+.toc {
+  ul.overflow li a {
+    font-size: 0.9rem;
+    border-radius: 6px;
+  }
+  button h3 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+}
+
+.backlinks {
+  h3 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+  ul.overflow li a {
+    display: block;
+    padding: 0.25rem 0.55rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    &:hover {
+      background: var(--highlight);
+    }
+  }
+}
+
+footer {
+  opacity: 0.7;
+  font-size: 0.85rem;
+}
+
+// celular: espaçamento mais compacto e título menor
+@media all and ($mobile) {
+  body {
+    font-size: 1rem;
+  }
+  .center {
+    min-width: 0;
+  }
+  h1.article-title {
+    font-size: clamp(1.55rem, 7.2vw, 2rem);
+    overflow-wrap: anywhere;
+  }
+  .page-title {
+    font-size: 1.3rem !important;
+  }
+  // no celular o topo é uma linha (menu, título, busca); o seletor de biblioteca ocupa uma linha própria
+  .left.sidebar {
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+  }
+  .library-switcher {
+    order: 10;
+    flex: 1 0 100%;
+    .all {
+      display: none;
+    }
+  }
+}

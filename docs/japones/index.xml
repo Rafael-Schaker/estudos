@@ -7,64 +7,64 @@
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
     <title>Bem-vindo ao Curso de Japonês 🇯🇵</title>
-    <link>https://rafael-schaker.github.io/estudos/japones/</link>
-    <guid>https://rafael-schaker.github.io/estudos/japones/</guid>
+    <link>https://rafael-schaker.github.io/estudos/japones/00-Comece-Aqui/Comece-Aqui</link>
+    <guid>https://rafael-schaker.github.io/estudos/japones/00-Comece-Aqui/Comece-Aqui</guid>
     <description><![CDATA[  Rotina mínima: 15 minutos por dia Constância vale mais do que sessões longas. ]]></description>
-    <pubDate>Tue, 03 Nov 2026 01:29:29 GMT</pubDate>
+    <pubDate>Tue, 03 Nov 2026 02:20:04 GMT</pubDate>
   </item><item>
-    <title>Cards: Vocabulário</title>
-    <link>https://rafael-schaker.github.io/estudos/japones/09-Flashcards/Cards---Vocabul%C3%A1rio</link>
-    <guid>https://rafael-schaker.github.io/estudos/japones/09-Flashcards/Cards---Vocabul%C3%A1rio</guid>
-    <description><![CDATA[ Todos os cards vêm das notas do cofre; a coluna Fonte leva à nota original. ]]></description>
-    <pubDate>Tue, 03 Nov 2026 01:29:29 GMT</pubDate>
+    <title>Como estudar (método)</title>
+    <link>https://rafael-schaker.github.io/estudos/japones/00-Comece-Aqui/Como-estudar-(m%C3%A9todo)</link>
+    <guid>https://rafael-schaker.github.io/estudos/japones/00-Comece-Aqui/Como-estudar-(m%C3%A9todo)</guid>
+    <description><![CDATA[ Estudar de modo confortável engana: parece que aprendeu, mas esquece rápido. Os métodos que mais funcionam têm um pouco de dificuldade. ]]></description>
+    <pubDate>Tue, 03 Nov 2026 02:20:04 GMT</pubDate>
   </item><item>
-    <title>Flashcards - índice</title>
-    <link>https://rafael-schaker.github.io/estudos/japones/09-Flashcards/Flashcards---%C3%ADndice</link>
-    <guid>https://rafael-schaker.github.io/estudos/japones/09-Flashcards/Flashcards---%C3%ADndice</guid>
-    <description><![CDATA[ Revisão ativa de todo o curso. ]]></description>
-    <pubDate>Tue, 03 Nov 2026 01:29:29 GMT</pubDate>
+    <title>Como usar o Obsidian (guia rápido)</title>
+    <link>https://rafael-schaker.github.io/estudos/japones/00-Comece-Aqui/Como-usar-o-Obsidian-(guia-r%C3%A1pido)</link>
+    <guid>https://rafael-schaker.github.io/estudos/japones/00-Comece-Aqui/Como-usar-o-Obsidian-(guia-r%C3%A1pido)</guid>
+    <description><![CDATA[ O básico em 6 ideias Notas são arquivos de texto. Aparecem na barra lateral esquerda, organizadas em pastas. ]]></description>
+    <pubDate>Tue, 03 Nov 2026 02:20:04 GMT</pubDate>
   </item><item>
-    <title>Cards: Revisão pedagógica</title>
-    <link>https://rafael-schaker.github.io/estudos/japones/09-Flashcards/Cards---Revis%C3%A3o-pedag%C3%B3gica</link>
-    <guid>https://rafael-schaker.github.io/estudos/japones/09-Flashcards/Cards---Revis%C3%A3o-pedag%C3%B3gica</guid>
-    <description><![CDATA[ Pares parecidos, radicais, sufixos, partículas finais, conectores, pronúncia, katakana, placas e frases essenciais. ]]></description>
-    <pubDate>Tue, 03 Nov 2026 01:29:29 GMT</pubDate>
+    <title>Glossário</title>
+    <link>https://rafael-schaker.github.io/estudos/japones/00-Comece-Aqui/Gloss%C3%A1rio</link>
+    <guid>https://rafael-schaker.github.io/estudos/japones/00-Comece-Aqui/Gloss%C3%A1rio</guid>
+    <description><![CDATA[  TermoSignificadoOnde aprenderKananome geral de hiragana e katakanaOs três sistemas de escritaHiraganaalfabeto silábico curvoHiragana (visão geral)Katakanaalfabeto silábico angulosoKatakana (visão geral)Kanjicaractere com significadoKanji (visão geral)Rōmajijaponês em letras latinasRōmajiFuriganakan... ]]></description>
+    <pubDate>Tue, 03 Nov 2026 02:20:04 GMT</pubDate>
   </item><item>
-    <title>Cards: Kanji</title>
-    <link>https://rafael-schaker.github.io/estudos/japones/09-Flashcards/Cards---Kanji</link>
-    <guid>https://rafael-schaker.github.io/estudos/japones/09-Flashcards/Cards---Kanji</guid>
-    <description><![CDATA[ Todos os cards vêm das notas do cofre; a coluna Fonte leva à nota original. ]]></description>
-    <pubDate>Tue, 03 Nov 2026 01:29:29 GMT</pubDate>
+    <title>Mapa do Curso</title>
+    <link>https://rafael-schaker.github.io/estudos/japones/00-Comece-Aqui/Mapa-do-Curso</link>
+    <guid>https://rafael-schaker.github.io/estudos/japones/00-Comece-Aqui/Mapa-do-Curso</guid>
+    <description><![CDATA[  flowchart TB M((&quot;Mapa do&lt;br/&gt;Curso&quot;)):::hub M --&gt; F[&quot;01 Fundamentos&lt;br/&gt;som e escrita&quot;] F --&gt; H[&quot;02 Hiragana&quot;] F --&gt; K[&quot;03 Katakana&quot;] F --&gt; KJ[&quot;04 Kanji&quot;] M --&gt; G[&quot;05 Gramática&lt;br/&gt;partículas, verbos, adjetivos&... ]]></description>
+    <pubDate>Tue, 03 Nov 2026 02:20:04 GMT</pubDate>
   </item><item>
-    <title>Cards: Katakana</title>
-    <link>https://rafael-schaker.github.io/estudos/japones/09-Flashcards/Cards---Katakana</link>
-    <guid>https://rafael-schaker.github.io/estudos/japones/09-Flashcards/Cards---Katakana</guid>
-    <description><![CDATA[ Todos os cards vêm das notas do cofre; a coluna Fonte leva à nota original. ]]></description>
-    <pubDate>Tue, 03 Nov 2026 01:29:29 GMT</pubDate>
+    <title>Painel de Progresso</title>
+    <link>https://rafael-schaker.github.io/estudos/japones/00-Comece-Aqui/Painel-de-Progresso</link>
+    <guid>https://rafael-schaker.github.io/estudos/japones/00-Comece-Aqui/Painel-de-Progresso</guid>
+    <description><![CDATA[ Marque com um clique (modo leitura). Os detalhes de cada semana estão nas trilhas: aqui fica só o resumo. ]]></description>
+    <pubDate>Tue, 03 Nov 2026 02:20:04 GMT</pubDate>
   </item><item>
-    <title>Cards: Gramática e pronúncia</title>
-    <link>https://rafael-schaker.github.io/estudos/japones/09-Flashcards/Cards---Gram%C3%A1tica-e-pron%C3%BAncia</link>
-    <guid>https://rafael-schaker.github.io/estudos/japones/09-Flashcards/Cards---Gram%C3%A1tica-e-pron%C3%BAncia</guid>
-    <description><![CDATA[ Todos os cards vêm das notas do cofre; a coluna Fonte leva à nota original. ]]></description>
-    <pubDate>Tue, 03 Nov 2026 01:29:29 GMT</pubDate>
+    <title>Plano de revisão espaçada</title>
+    <link>https://rafael-schaker.github.io/estudos/japones/00-Comece-Aqui/Plano-de-revis%C3%A3o-espa%C3%A7ada</link>
+    <guid>https://rafael-schaker.github.io/estudos/japones/00-Comece-Aqui/Plano-de-revis%C3%A3o-espa%C3%A7ada</guid>
+    <description><![CDATA[ Revisar logo antes de esquecer é o que mais fixa. Um bom padrão é rever o mesmo conteúdo em intervalos crescentes. ]]></description>
+    <pubDate>Tue, 03 Nov 2026 02:20:04 GMT</pubDate>
   </item><item>
-    <title>Cards: Hiragana</title>
-    <link>https://rafael-schaker.github.io/estudos/japones/09-Flashcards/Cards---Hiragana</link>
-    <guid>https://rafael-schaker.github.io/estudos/japones/09-Flashcards/Cards---Hiragana</guid>
-    <description><![CDATA[ Todos os cards vêm das notas do cofre; a coluna Fonte leva à nota original. ]]></description>
-    <pubDate>Tue, 03 Nov 2026 01:29:29 GMT</pubDate>
+    <title>Rotina de 15 minutos</title>
+    <link>https://rafael-schaker.github.io/estudos/japones/00-Comece-Aqui/Rotina-de-15-minutos</link>
+    <guid>https://rafael-schaker.github.io/estudos/japones/00-Comece-Aqui/Rotina-de-15-minutos</guid>
+    <description><![CDATA[ flowchart LR A[&quot;3 min&lt;br/&gt;revisar cards&lt;br/&gt;(sem olhar)&quot;] --&gt; B[&quot;5 min&lt;br/&gt;1 conteúdo novo&lt;br/&gt;da semana&quot;] B --&gt; C[&quot;4 min&lt;br/&gt;FECHAR e lembrar:&lt;br/&gt;escrever e falar de memória&quot;] C --&gt; D[&quot;3 min&lt;br/&gt;autoteste da nota... ]]></description>
+    <pubDate>Tue, 03 Nov 2026 02:20:04 GMT</pubDate>
   </item><item>
-    <title>Cards: Conjugação e imperativo</title>
-    <link>https://rafael-schaker.github.io/estudos/japones/09-Flashcards/Cards---Conjuga%C3%A7%C3%A3o-e-imperativo</link>
-    <guid>https://rafael-schaker.github.io/estudos/japones/09-Flashcards/Cards---Conjuga%C3%A7%C3%A3o-e-imperativo</guid>
-    <description><![CDATA[ Grupo, ます, て, ない, た e imperativo de 31 verbos, mais as regras do imperativo e da proibição. Cada card tem uma Fonte que leva à nota original. ]]></description>
-    <pubDate>Tue, 03 Nov 2026 01:29:29 GMT</pubDate>
+    <title>Caracteres parecidos (diferenças)</title>
+    <link>https://rafael-schaker.github.io/estudos/japones/01-Fundamentos/Caracteres-parecidos</link>
+    <guid>https://rafael-schaker.github.io/estudos/japones/01-Fundamentos/Caracteres-parecidos</guid>
+    <description><![CDATA[ Quase todo iniciante confunde estes pares. ]]></description>
+    <pubDate>Tue, 03 Nov 2026 02:20:04 GMT</pubDate>
   </item><item>
-    <title>Cards: Frases</title>
-    <link>https://rafael-schaker.github.io/estudos/japones/09-Flashcards/Cards---Frases</link>
-    <guid>https://rafael-schaker.github.io/estudos/japones/09-Flashcards/Cards---Frases</guid>
-    <description><![CDATA[ Todos os cards vêm das notas do cofre; a coluna Fonte leva à nota original. ]]></description>
-    <pubDate>Tue, 03 Nov 2026 01:29:29 GMT</pubDate>
+    <title>Como digitar japonês</title>
+    <link>https://rafael-schaker.github.io/estudos/japones/01-Fundamentos/Como-digitar-japon%C3%AAs</link>
+    <guid>https://rafael-schaker.github.io/estudos/japones/01-Fundamentos/Como-digitar-japon%C3%AAs</guid>
+    <description><![CDATA[ Você digita em rōmaji (letras do teclado) e o computador ou celular converte em kana e kanji. Isso é um ótimo treino de leitura. ]]></description>
+    <pubDate>Tue, 03 Nov 2026 02:20:04 GMT</pubDate>
   </item>
     </channel>
   </rss>
